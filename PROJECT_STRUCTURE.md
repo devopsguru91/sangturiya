@@ -1,10 +1,24 @@
 # Project Structure
 
-This project follows an agentic system architecture. The structure is broken down into the following components:
+This project follows an agentic system architecture for the Sangturiya AI assistant. The structure is broken down into the following components:
 
-- **`ui/`**: Frontend user interface applications and components. Handles user interactions.
-- **`agent/`**: The core AI agent system logic, including reasoning, task planning, and orchestration of other components.
-- **`backend/`**: General backend services, API endpoints, and business logic that supports the agent and UI.
-- **`mcp/`**: Model Context Protocol implementations and server setups. Handles the interaction and providing context to AI models.
-- **`db/`**: Database migrations, schemas, ORM models, and database access utilities.
-- **`rag/`**: Retrieval-Augmented Generation pipeline. Contains logic for vector embeddings, document chunking, semantic search, and integration with the knowledge base.
+- **`backend/`**: General backend services, API endpoints, and business logic.
+  - `main.py`: Entry point for FastAPI application.
+  - `api/`: API route definitions.
+  - `core/`: Core configurations and utilities.
+- **`agent/`**: The core AI agent system logic, including reasoning and orchestration.
+  - `chatbot.py`: Core logic for processing interactions.
+  - `mcp_client.py`: Client to connect to Model Context Protocol servers to fetch context.
+  - `prompts.py`: System prompts and LLM instruction templates.
+- **`mcp/`**: Model Context Protocol implementations and server setups.
+  - `server.py`: MCP server implementation exposing tools and resources.
+  - `tools.py`: Tool definitions exposed via MCP.
+- **`rag/`**: Retrieval-Augmented Generation pipeline.
+  - `retriever.py`: Logic to retrieve relevant documents.
+  - `ingest.py`: Logic to ingest and chunk documents.
+  - `embeddings.py`: Utilities for generating embeddings.
+- **`db/`**: Database migrations, schemas, and connection utilities.
+  - `models.py`: Database schema definitions (e.g., SQLAlchemy models).
+  - `session.py`: Database connection and session management.
+- **`ui/`**: Frontend user interface applications and components.
+  - `app.py`: Streamlit application serving as the primary UI.
